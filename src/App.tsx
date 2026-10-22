@@ -1,9 +1,5 @@
 import { useLayoutEffect, useRef, type ReactNode } from "react";
-import {
-  Button,
-  Container,
-  Group,
-} from "@mantine/core";
+import { Button, Container, Group } from "@mantine/core";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   IconArrowDown,
@@ -14,7 +10,6 @@ import {
 } from "@tabler/icons-react";
 import gsap from "gsap";
 import drawing from "./assets/two-roles.svg?raw";
-
 
 const asset = (name: string) => `/assets/${name}`;
 const skills = [
@@ -83,20 +78,41 @@ function Detail({
     </div>
   );
 }
-function Photo({ src, alt, color = false }: { src: string; alt: string; color?: boolean }) {
-  const displaySrc = src === 'spcf-sms.png' ? 'spcf-sms-light.png' : src;
-  const isProject = src.endsWith('.png');
+function Photo({
+  src,
+  alt,
+  color = false,
+}: {
+  src: string;
+  alt: string;
+  color?: boolean;
+}) {
+  const displaySrc = src === "spcf-sms.png" ? "spcf-sms-light.png" : src;
+  const isProject = src.endsWith(".png");
   const highlights: Record<string, string> = {
-    '2024.jpg': 'student',
-    '2025.jpg': 'instructor',
-    'exp5.webp': 'converge',
-    'spcf.jpg': 'cube',
+    "2024.jpg": "student",
+    "2025.jpg": "instructor",
+    "exp5.webp": "converge",
+    "spcf.jpg": "cube",
   };
   const highlight = highlights[src];
   return (
-    <Reveal variant="image" className={`photo ${src === 'spcf-sms.png' ? 'school-management' : ''} ${src === 'converge (2).png' ? 'viewmodem-project' : ''} ${src === 'spcf-website.png' ? 'school-prototype' : ''} ${isProject ? 'project-image' : ''} ${color ? 'photo-color' : ''} ${highlight ? `spotlight photo--${highlight}` : ''}`}>
-      <div className="photo-canvas"><img src={asset(displaySrc)} alt={alt} loading="lazy" />
-      {(highlight || src === 'converge (2).png') && <img className="photo-subject" src={asset(displaySrc)} alt="" aria-hidden="true" loading="lazy" />}</div>
+    <Reveal
+      variant="image"
+      className={`photo ${src === "spcf-sms.png" ? "school-management" : ""} ${src === "converge (2).png" ? "viewmodem-project" : ""} ${src === "spcf-website.png" ? "school-prototype" : ""} ${isProject ? "project-image" : ""} ${color ? "photo-color" : ""} ${highlight ? `spotlight photo--${highlight}` : ""}`}
+    >
+      <div className="photo-canvas">
+        <img src={asset(displaySrc)} alt={alt} loading="lazy" />
+        {(highlight || src === "converge (2).png") && (
+          <img
+            className="photo-subject"
+            src={asset(displaySrc)}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        )}
+      </div>
     </Reveal>
   );
 }
@@ -137,10 +153,34 @@ function SurfaceGrid() {
     const ctx = gsap.context(() => {
       // One shared intersection keeps horizontal and vertical gutters at 12px,
       // including every intermediate frame and every responsive size.
-      gsap.timeline({ repeat: -1, repeatDelay: 1.4, delay: 0.5 })
-        .to(ref.current, { '--grid-x': '34%', '--grid-y': '65%', duration: 1.25, ease: 'power2.inOut' })
-        .to(ref.current, { '--grid-x': '55%', '--grid-y': '35%', duration: 1.25, ease: 'power2.inOut' }, '+=1.4')
-        .to(ref.current, { '--grid-x': '66%', '--grid-y': '50%', duration: 1.25, ease: 'power2.inOut' }, '+=1.4');
+      gsap
+        .timeline({ repeat: -1, repeatDelay: 1.4, delay: 0.5 })
+        .to(ref.current, {
+          "--grid-x": "34%",
+          "--grid-y": "65%",
+          duration: 1.25,
+          ease: "power2.inOut",
+        })
+        .to(
+          ref.current,
+          {
+            "--grid-x": "55%",
+            "--grid-y": "35%",
+            duration: 1.25,
+            ease: "power2.inOut",
+          },
+          "+=1.4",
+        )
+        .to(
+          ref.current,
+          {
+            "--grid-x": "66%",
+            "--grid-y": "50%",
+            duration: 1.25,
+            ease: "power2.inOut",
+          },
+          "+=1.4",
+        );
     }, ref);
     return () => ctx.revert();
   }, [reduce]);
@@ -247,14 +287,44 @@ export default function App() {
   const reduce = useReducedMotion();
   return (
     <>
-      <svg className="image-filter-definitions" width="0" height="0" aria-hidden="true" focusable="false">
+      <svg
+        className="image-filter-definitions"
+        width="0"
+        height="0"
+        aria-hidden="true"
+        focusable="false"
+      >
         <defs>
-          {([['green', '#32533D'], ['cream', '#F7F6F2'], ['gold', '#DFB86B']] as const).map(([name, ink]) => (
-            <filter id={`line-art-${name}`} key={name} x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+          {(
+            [
+              ["green", "#32533D"],
+              ["cream", "#F7F6F2"],
+              ["gold", "#DFB86B"],
+            ] as const
+          ).map(([name, ink]) => (
+            <filter
+              id={`line-art-${name}`}
+              key={name}
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              colorInterpolationFilters="sRGB"
+            >
               <feColorMatrix type="saturate" values="0" />
               <feGaussianBlur stdDeviation="0.45" />
-              <feConvolveMatrix order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" divisor="1" bias="0" preserveAlpha="true" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3 3 3 0 -0.06" result="edges" />
+              <feConvolveMatrix
+                order="3"
+                kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1"
+                divisor="1"
+                bias="0"
+                preserveAlpha="true"
+              />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3 3 3 0 -0.06"
+                result="edges"
+              />
               <feFlood floodColor={ink} />
               <feComposite in2="edges" operator="in" />
             </filter>
@@ -273,7 +343,13 @@ export default function App() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1>
-              <svg className="crown" viewBox="0 0 40 25" aria-hidden="true"><path d="M4 5 12 11 20 1 28 11 36 5 32 20H8Z" fill="currentColor"/><path d="M8 24H32" stroke="currentColor" strokeWidth="2"/></svg>
+              <svg className="crown" viewBox="0 0 40 25" aria-hidden="true">
+                <path
+                  d="M4 5 12 11 20 1 28 11 36 5 32 20H8Z"
+                  fill="currentColor"
+                />
+                <path d="M8 24H32" stroke="currentColor" strokeWidth="2" />
+              </svg>
               P.Charles
             </h1>
             <p className="hero-intro">
@@ -395,11 +471,7 @@ export default function App() {
         <section className="chapter">
           <Container size="xl">
             <div className="split chapter-row">
-              <Photo
-                src="exp5.webp"
-                alt="Converge ICT headquarters"
-                color
-              />
+              <Photo src="exp5.webp" alt="Converge ICT headquarters" color />
               <Reveal>
                 <Label>04: THE BIGGER PICTURE</Label>
                 <h2>Then came a new chapter.</h2>
@@ -475,7 +547,7 @@ export default function App() {
             <Group gap={12}>
               <Button
                 component="a"
-                href="mailto:hello@princecharlesclemente.dev"
+                href="mailto:clemente.pcharles@gmail.com"
                 className="contact-primary"
                 leftSection={<IconMail size={16} />}
               >
@@ -483,7 +555,7 @@ export default function App() {
               </Button>
               <Button
                 component="a"
-                href="https://linkedin.com/in/princecharlesclemente"
+                href="https://www.linkedin.com/in/clemente-pcharles"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="outline"
@@ -491,17 +563,6 @@ export default function App() {
                 leftSection={<IconBrandLinkedin size={16} />}
               >
                 LINKEDIN
-              </Button>
-              <Button
-                component="a"
-                href="https://github.com/princecharlesclemente"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outline"
-                className="contact-outline"
-                leftSection={<IconBrandGithub size={16} />}
-              >
-                GITHUB
               </Button>
             </Group>
           </Reveal>
