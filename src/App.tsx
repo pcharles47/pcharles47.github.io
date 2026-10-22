@@ -353,7 +353,7 @@ export default function App() {
               P.Charles
             </h1>
             <p className="hero-intro">
-              <strong>
+              <strong style={{ textWrap: "balance" }}>
                 Building software that makes sense, and makes a difference.
               </strong>
               <br />I enjoy turning complex business requirements into intuitive
