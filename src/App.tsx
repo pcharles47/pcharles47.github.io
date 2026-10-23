@@ -4,7 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   IconArrowDown,
   IconArrowUpRight,
-  IconBrandGithub,
   IconBrandLinkedin,
   IconMail,
 } from "@tabler/icons-react";
@@ -46,9 +45,9 @@ function Reveal({
         reduce
           ? false
           : {
-              opacity: 0,
-              y: variant === "fade" ? 0 : variant === "image" ? 18 : 26,
-            }
+            opacity: 0,
+            y: variant === "fade" ? 0 : variant === "image" ? 18 : 26,
+          }
       }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.16 }}
@@ -331,9 +330,6 @@ export default function App() {
           ))}
         </defs>
       </svg>
-      <a className="skip-link" href="#about">
-        Skip to content
-      </a>
       <header className="hero">
         <div className="hero-background" aria-hidden="true" />
         <Container size="sm" className="hero-content">
@@ -535,10 +531,8 @@ export default function App() {
                   Make complicated things easier to understand and use.
                 </strong>
                 <br />
-                <span>
-                  There’s still more to learn, more to build, and more problems
-                  worth solving.
-                </span>
+                There’s still more to learn, more to build, and more problems
+                worth solving.
               </p>
             </div>
           </Reveal>

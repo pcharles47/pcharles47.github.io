@@ -66,7 +66,7 @@ p {
 }
 .eyebrow {
   font-size: 10px;
-  letter-spacing: 1.3px;
+  /* letter-spacing: 1.3px; */
   font-weight: 600;
   color: #949491;
 }
@@ -1360,15 +1360,29 @@ button:focus-visible {
 }
 
 /* Pair hover fills and text explicitly for contrast, including icons. */
-.mantine-Button-root.button-outline:is(:hover,:focus-visible){
-  background:#32533D;color:#F7F6F2;border-color:#32533D;
+.mantine-Button-root.button-outline:is(:hover, :focus-visible) {
+  background: #32533d;
+  color: #f7f6f2;
+  border-color: #32533d;
 }
-.mantine-Button-root.contact-primary:is(:hover,:focus-visible){
-  background:#294632;color:#F7F6F2;border-color:#F7F6F2;
+.mantine-Button-root.contact-primary:is(:hover, :focus-visible) {
+  background: #294632;
+  color: #f7f6f2;
+  border-color: #f7f6f2;
 }
-.mantine-Button-root.contact-outline:is(:hover,:focus-visible){
-  background:#F7F6F2;color:#32533D;border-color:#F7F6F2;
+.mantine-Button-root.contact-outline:is(:hover, :focus-visible) {
+  background: #f7f6f2;
+  color: #32533d;
+  border-color: #f7f6f2;
 }
-:is(.button-outline,.contact-primary,.contact-outline):is(:hover,:focus-visible) :is(.mantine-Button-label,.mantine-Button-section){color:inherit}
+:is(.button-outline, .contact-primary, .contact-outline):is(
+    :hover,
+    :focus-visible
+  )
+  :is(.mantine-Button-label, .mantine-Button-section) {
+  color: inherit;
+}
 /* Square photo and project frames; logo styling stays separate. */
-.photo{border-radius:0}
+.photo {
+  border-radius: 0;
+}
