@@ -330,77 +330,82 @@ export default function App() {
           ))}
         </defs>
       </svg>
-      <header className="hero">
-        <div className="hero-background" aria-hidden="true" />
-        <Container size="sm" className="hero-content">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h1>
-              <svg className="crown" viewBox="0 0 40 25" aria-hidden="true">
-                <path
-                  d="M4 5 12 11 20 1 28 11 36 5 32 20H8Z"
-                  fill="currentColor"
-                />
-                <path d="M8 24H32" stroke="currentColor" strokeWidth="2" />
-              </svg>
-              P.Charles
-            </h1>
-            <p className="hero-intro">
-              <strong style={{ textWrap: "balance" }}>
-                Building software that makes sense, and makes a difference.
-              </strong>
-              <br />I enjoy turning complex business requirements into intuitive
-              interfaces, scalable architectures, and reliable software that
-              people enjoy using.
-            </p>
-            <Group justify="center" gap={12} mt={32}>
-              <Button
-                component="a"
-                href="#about"
-                className="button-primary"
-                rightSection={<IconArrowUpRight size={15} />}
-              >
-                ABOUT ME
-              </Button>
-              <Button
-                component="a"
-                href="#contact"
-                variant="outline"
-                className="button-outline"
-              >
-                CONTACT
-              </Button>
-            </Group>
-          </motion.div>
-          <a className="scroll-cue" href="#about">
-            <IconArrowDown size={17} />
-            <span>SCROLL TO EXPLORE</span>
-          </a>
-        </Container>
-      </header>
       <main>
-        <Skills />
-        <section id="about" className="section surface">
-          <Container size="xl" className="split">
-            <Reveal>
-              <Label>01: THE SURFACE</Label>
-              <h2>
-                I started with
-                <br />
-                what people see.
-              </h2>
-              <p>
-                The colors, the layouts, and the little details that make an
-                interface feel right. Learning how each choice shapes the
-                experience, one screen at a time.
-              </p>
-            </Reveal>
-            <SurfaceGrid />
-          </Container>
-        </section>
+        <div className="hero-surface-background">
+          <div className="hero-background" aria-hidden="true" />
+          <header className="hero">
+            <Container size="sm" className="hero-content">
+              <motion.div
+                initial={reduce ? false : { opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h1>
+                  <span className="hero-initial">
+                  <svg className="crown" viewBox="0 0 40 25" aria-hidden="true">
+                    <path
+                      d="M4 5 12 11 20 1 28 11 36 5 32 20H8Z"
+                      fill="currentColor"
+                    />
+                    <path d="M8 24H32" stroke="currentColor" strokeWidth="2" />
+                  </svg>
+                  P
+                  </span>
+                  <span>.Charles</span>
+                </h1>
+                <p className="hero-intro">
+                  <strong style={{ textWrap: "balance" }}>
+                    Building software that makes sense, and makes a difference.
+                  </strong>
+                  <br />I enjoy turning complex business requirements into intuitive
+                  interfaces, scalable architectures, and reliable software that
+                  people enjoy using.
+                </p>
+                <Group justify="center" gap={12} mt={32}>
+                  <Button
+                    component="a"
+                    href="#about"
+                    className="button-primary"
+                    rightSection={<IconArrowUpRight size={15} />}
+                  >
+                    ABOUT ME
+                  </Button>
+                  <Button
+                    component="a"
+                    href="#contact"
+                    variant="outline"
+                    className="button-outline"
+                  >
+                    CONTACT
+                  </Button>
+                </Group>
+              </motion.div>
+              <a className="scroll-cue" href="#about">
+                <IconArrowDown size={17} />
+                <span>SCROLL TO EXPLORE</span>
+              </a>
+            </Container>
+            <Skills />
+          </header>
+          <section id="about" className="section surface">
+            <Container size="xl" className="split">
+              <Reveal>
+                <Label>01: THE SURFACE</Label>
+                <h2>
+                  I started with
+                  <br />
+                  what people see.
+                </h2>
+                <p>
+                  The colors, the layouts, and the little details that make an
+                  interface feel right. Learning how each choice shapes the
+                  experience, one screen at a time.
+                </p>
+              </Reveal>
+              <SurfaceGrid />
+            </Container>
+          </section>
+        </div>
         <section className="section beneath">
           <Container size="xl" className="split">
             <Reveal>

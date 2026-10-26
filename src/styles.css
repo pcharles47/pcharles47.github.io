@@ -91,14 +91,7 @@ p {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(16, 16, 16, 0.65),
-      rgba(16, 16, 16, 0.78) 55%,
-      #101010
-    ),
-    url("/assets/bg_dark.png") center top/cover;
+  background: url("./assets/hero-bg.png") center top / cover no-repeat;
   opacity: 0.75;
 }
 .hero-content {
@@ -255,7 +248,7 @@ p {
   position: absolute;
   border: 1px solid #353533;
   border-radius: 3px;
-  background: linear-gradient(140deg, #151515, #111);
+  background: transparent;
   overflow: hidden;
   padding: 20px;
 }
@@ -709,9 +702,7 @@ body {
   background: var(--page);
 }
 .hero-background {
-  background:
-    var(--hero-bg),
-    url("/assets/bg_dark.png") center top/cover;
+  background: url("./assets/hero-bg.png") center top / cover no-repeat;
 }
 .hero h1 {
   color: var(--hero-title);
@@ -750,7 +741,7 @@ body {
 }
 .grid-panel {
   border-color: var(--line);
-  background: linear-gradient(140deg, var(--panel), var(--panel-end));
+  background: transparent;
 }
 .panel-dot {
   background: var(--accent);
@@ -762,7 +753,7 @@ body {
   background: var(--surface);
 }
 .chapter {
-  background: var(--chapter);
+  background: url("./assets/hero-bg.png") center top / cover no-repeat;
 }
 .drawing {
   opacity: 1;
@@ -873,6 +864,10 @@ button:focus-visible {
 .hero h1 {
   isolation: isolate;
 }
+.hero-initial {
+  position: relative;
+  display: inline-block;
+}
 .hero .crown {
   position: absolute;
   left: 0.025em;
@@ -923,8 +918,7 @@ button:focus-visible {
 /* Two section backgrounds; green is the only light-mode interface accent. */
 [data-mantine-color-scheme="light"] .hero,
 [data-mantine-color-scheme="light"] .skills,
-[data-mantine-color-scheme="light"] .surface,
-[data-mantine-color-scheme="light"] .chapter {
+[data-mantine-color-scheme="light"] .surface {
   background: var(--page);
 }
 [data-mantine-color-scheme="light"] .beneath,
@@ -933,7 +927,7 @@ button:focus-visible {
   background: var(--surface);
 }
 [data-mantine-color-scheme="light"] .grid-panel {
-  background: var(--panel);
+  background: transparent;
 }
 [data-mantine-color-scheme="light"] .photo::after {
   background: linear-gradient(
@@ -1121,18 +1115,7 @@ button:focus-visible {
 
 /* Soft light-mode hero accents over the existing cream foundation. */
 [data-mantine-color-scheme="light"] .hero-background {
-  background:
-    radial-gradient(
-      ellipse at 18% 32%,
-      rgba(246, 214, 188, 0.68) 0,
-      transparent 48%
-    ),
-    radial-gradient(
-      ellipse at 84% 38%,
-      rgba(222, 214, 245, 0.62) 0,
-      transparent 48%
-    ),
-    linear-gradient(#fff9ee, #fff9ee);
+  background: url("./assets/hero-bg.png") center top / cover no-repeat;
   opacity: 1;
 }
 /* Extend the screenshot's sky and navy edges into its 3:2 frame. */
@@ -1192,13 +1175,7 @@ button:focus-visible {
   --line: #bac4ba;
 }
 [data-mantine-color-scheme="light"] .hero-background {
-  background:
-    radial-gradient(
-      ellipse at 80% 28%,
-      rgba(50, 83, 61, 0.09),
-      transparent 55%
-    ),
-    linear-gradient(#f7f6f2, #f7f6f2);
+  background: url("./assets/hero-bg.png") center top / cover no-repeat;
 }
 [data-mantine-color-scheme="light"] :is(.beneath, .other-side, footer) {
   --ink: #f7f6f2;
@@ -1385,4 +1362,33 @@ button:focus-visible {
 /* Square photo and project frames; logo styling stays separate. */
 .photo {
   border-radius: 0;
+}
+
+/* Keep the intro and toolbox together over the full hero background. */
+.hero-surface-background {
+  position: relative;
+  isolation: isolate;
+}
+.hero-surface-background > .hero,
+.hero-surface-background > .surface,
+[data-mantine-color-scheme="light"] .hero-surface-background > .hero,
+[data-mantine-color-scheme="light"] .hero-surface-background > .surface {
+  background: transparent;
+}
+.hero {
+  height: auto;
+  min-height: 100vh;
+  max-height: none;
+  grid-template-rows: 1fr auto;
+}
+.hero > .hero-content {
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.hero > .skills,
+[data-mantine-color-scheme="light"] .hero > .skills {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  text-align: left;
 }
