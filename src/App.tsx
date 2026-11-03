@@ -263,7 +263,7 @@ const experiences = [
     alt: "Teaching an IT class at Systems Plus College Foundation",
   },
   {
-    year: "PROJECT / 2024",
+    year: "PROJECT: 2024",
     title: "School Website Prototype",
     company: "SYSTEMS PLUS COLLEGE FOUNDATION",
     description:
@@ -272,7 +272,7 @@ const experiences = [
     alt: "School website prototype with the headline Empower Your Future",
   },
   {
-    year: "PROJECT / 2024",
+    year: "PROJECT: 2024",
     title: "School Management System",
     company: "SPCF — ICT DEVELOPMENT UNIT",
     description:
@@ -342,14 +342,14 @@ export default function App() {
               >
                 <h1>
                   <span className="hero-initial">
-                  <svg className="crown" viewBox="0 0 40 25" aria-hidden="true">
-                    <path
-                      d="M4 5 12 11 20 1 28 11 36 5 32 20H8Z"
-                      fill="currentColor"
-                    />
-                    <path d="M8 24H32" stroke="currentColor" strokeWidth="2" />
-                  </svg>
-                  P
+                    <svg className="crown" viewBox="0 0 40 25" aria-hidden="true">
+                      <path
+                        d="M4 5 12 11 20 1 28 11 36 5 32 20H8Z"
+                        fill="currentColor"
+                      />
+                      <path d="M8 24H32" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                    P
                   </span>
                   <span>.Charles</span>
                 </h1>
@@ -390,7 +390,6 @@ export default function App() {
           <section id="about" className="section surface">
             <Container size="xl" className="split">
               <Reveal>
-                <Label>01: THE SURFACE</Label>
                 <h2>
                   I started with
                   <br />
@@ -409,7 +408,6 @@ export default function App() {
         <section className="section beneath">
           <Container size="xl" className="split">
             <Reveal>
-              <Label>02: BENEATH THE SURFACE</Label>
               <h2>But an interface is only part of the picture.</h2>
               <p>
                 Behind it are the data, the logic, and the connections that
@@ -437,7 +435,6 @@ export default function App() {
             <div className="split other-intro">
               <DrawnArt />
               <Reveal variant="fade">
-                <Label>03: ON THE OTHER SIDE</Label>
                 <h2>
                   For a while, I<br />
                   wore two hats.
@@ -474,7 +471,6 @@ export default function App() {
             <div className="split chapter-row">
               <Photo src="exp5.webp" alt="Converge ICT headquarters" color />
               <Reveal>
-                <Label>04: THE BIGGER PICTURE</Label>
                 <h2>Then came a new chapter.</h2>
                 <p>
                   Working on software in a professional environment, alongside
@@ -492,7 +488,6 @@ export default function App() {
             </div>
             <div className="split chapter-row">
               <Reveal>
-                <Label>05: CONNECTING THE PIECES</Label>
                 <h2>
                   The more I build,
                   <br />
